@@ -40,13 +40,21 @@ const photos = [
   { src: "/images/phuquoc/25.jpg", width: 4000, height: 6000 },
   { src: "/images/phuquoc/26.jpg", width: 6000, height: 4000 },
   { src: "/images/phuquoc/27.jpg", width: 4000, height: 6000 },
-  { src: "/images/phuquoc/28.jpg", width: 4000, height: 6000 },
-  { src: "/images/phuquoc/29.jpg", width: 4000, height: 6000 },
+  { src: "/images/phuquoc/28.jpg", width: 6000, height: 4000 },
+  { src: "/images/phuquoc/29.jpg", width: 6000, height: 4000 },
   { src: "/images/phuquoc/30.jpg", width: 4000, height: 6000 },
   { src: "/images/phuquoc/31.jpg", width: 4000, height: 6000 },
   { src: "/images/phuquoc/32.jpg", width: 2305, height: 1537 },
 ]
 
-const Gallery = () => <PhotoAlbum layout="columns" photos={photos} renderPhoto={NextJsImage} />
+// resize photos in size
+const ratio = 6
+const resizedPhotos = photos.map((photo) => ({
+  ...photo,
+  width: photo.width / ratio,
+  height: photo.height / ratio,
+}))
+
+const Gallery = () => <PhotoAlbum layout="masonry" photos={resizedPhotos.sort((a, b) => 0.5 - Math.random())} renderPhoto={NextJsImage} />
 
 export default Gallery
