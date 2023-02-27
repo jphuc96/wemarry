@@ -48,7 +48,7 @@ const photos = [
 ]
 
 // resize photos in size
-const ratio = 6
+const ratio = 4
 const resizedPhotos = photos.map((photo) => ({
   ...photo,
   width: photo.width / ratio,
